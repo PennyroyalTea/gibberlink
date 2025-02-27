@@ -1,0 +1,34 @@
+import googleapiclient.discovery
+import googleapiclient.errors
+
+def youtube_search(query):
+    youtube = googleapiclient.discovery.build(
+        "youtube", "v3", developerKey="YOUR_API_KEY"
+    )
+
+    request = youtube.search().list(
+        part="snippet",
+        maxResults=5,
+        q=query
+    )
+    response = request.execute()
+
+    for item in response['items']:
+        print(f"Title: {item['snippet']['title']}")
+        print(f"URL: https://www.youtube.com/watch?v={item['id']['videoId']}")
+        print("------")
+
+youtube_search("coding tutorials")
+ import yt_dlp
+
+def download_video(url):
+    ydl_opts = {
+        'format': 'best',
+        'outtmpl': './downloads/%(title)s.%(ext)s',
+    }
+
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+
+download_video('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+ 
