@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { SolanaWalletProviders } from "@/components/SolanaWalletProviders";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Inter 폰트 사용 (Geist 대체)
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -32,9 +29,11 @@ export default function RootLayout({
         <Script src="/ggwave/ggwave.js" strategy="beforeInteractive" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.className} antialiased`}
       >
-        {children}
+        <SolanaWalletProviders>
+          {children}
+        </SolanaWalletProviders>
       </body>
     </html>
   );

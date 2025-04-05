@@ -1,0 +1,37 @@
+{
+  "name": "sal-sdk",
+  "version": "0.1.0",
+  "description": "SAL SDK for audio-based message encoding",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "dist/umd/sal-sdk.js",
+  "scripts": {
+    "build": "tsc",
+    "build:web": "webpack",
+    "build:all": "yarn build && yarn build:web",
+    "test": "jest",
+    "clean": "rimraf dist",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.0",
+    "bs58": "^6.0.0",
+    "events": "^3.3.0",
+    "tweetnacl": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^18.16.0",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.0",
+    "ts-jest": "^29.3.1",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.0.4",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT"
+}

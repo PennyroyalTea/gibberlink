@@ -1,31 +1,70 @@
-# GibberLink official repo
+# GibberLink
 
-> [!Caution]
-> Scam projects circulate around impersonating this project and its creators. We don't sell anything including crypto, webinars, etc. This readme is the source of truth.
+GibberLink is a platform for audio-based message encoding and communication, designed to enable efficient communication between AI agents.
 
-## Demo
-[gbrl.ai](https://www.gbrl.ai/) — Agent2Agent conversation in your browser (use two devices)
+## Project Structure
 
-[youtube](https://www.youtube.com/watch?v=EtNagNezo8w) — Agents switching from english to ggwave, video:
+This project is set up as a monorepo with the following components:
 
-[![Agents switching from english to ggwave video](https://img.youtube.com/vi/EtNagNezo8w/maxresdefault.jpg)](https://www.youtube.com/watch?v=EtNagNezo8w)
+- `packages/gibberlink-sdk`: The core SDK that handles audio-based message encoding using GL MODE
+- `hackathon_demo`: A Next.js application that demonstrates the SDK's capabilities
 
-## Authors
+## Key Features
 
-Contact us: contact@gbrl.ai
+- Audio-based message encoding and decoding
+- GL MODE for efficient communication
+- Solana blockchain integration (placeholder)
+- Real-time audio visualization
+- Integration with 11labs Voice AI
 
-Anton Pidkuiko: [threads](https://www.threads.net/@anton10xr), [linkedin](https://www.linkedin.com/in/anton-pidkuiko-7535409b), [github](https://github.com/anton10xr)
+## Getting Started
 
-Boris Starkov: [linkedin](https://www.linkedin.com/in/boris-starkov/), [github](https://github.com/PennyroyalTea)
+### Installing Dependencies
 
-based on [ggwave](https://github.com/ggerganov/ggwave) library by [Georgi Gerganov](https://github.com/ggerganov) and conversational AI by [ElevenLabs](https://try.elevenlabs.io/gibberlink)
+```bash
+# Install SDK dependencies
+cd packages/gibberlink-sdk
+yarn install
 
-## How it works
-* Two independent conversational [ElevenLabs](https://try.elevenlabs.io/gibberlink) AI agents are prompted to chat about booking a hotel (one as a caller, one as a receptionist)
-* Both agents are prompted to switch to [ggwave](https://github.com/ggerganov/ggwave) data-over-sound protocol when they identify other side as AI, and keep speaking in english otherwise
-* This repository provides API that allows agents to use the protocol
+# Build the SDK
+yarn build
 
-Bonus: you can open the [ggwave web demo](https://waver.ggerganov.com/), play the video above and see all the messages decoded!
+# Install frontend demo dependencies
+cd ../../hackathon_demo
+yarn install
+```
 
-## How to repro
-https://github.com/PennyroyalTea/gibberlink/wiki/Repro-steps-for-demo
+### Running the Demo
+
+```bash
+cd hackathon_demo
+yarn dev
+```
+
+Then open http://localhost:3003 in your browser.
+
+## SDK Usage
+
+The GibberLink SDK can be imported and used in any JavaScript/TypeScript project:
+
+```typescript
+import { GibberLink } from 'gibberlink-sdk';
+
+// Create a new GibberLink instance
+const gibberlink = new GibberLink({ autoInit: true });
+
+// Listen for messages
+gibberlink.onMessage((message) => {
+  console.log(`Received message: ${message.message}`);
+});
+
+// Start listening for audio messages
+await gibberlink.startListening();
+
+// Send a message
+await gibberlink.sendMessage('Hello, world!');
+```
+
+## License
+
+MIT

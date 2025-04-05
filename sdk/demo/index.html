@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gibberlink SDK 데모</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .control-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .log {
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gibberlink SDK 데모</h1>
+        
+        <div class="card">
+            <h2>연결 설정</h2>
+            <div class="control-panel">
+                <label for="host">호스트 주소:</label>
+                <input type="text" id="host" value="localhost" />
+                
+                <label for="modality">통신 방식:</label>
+                <select id="modality">
+                    <option value="VOICE">음성(VOICE)</option>
+                    <option value="TCP">TCP</option>
+                </select>
+                
+                <button id="connect">연결</button>
+                <button id="disconnect" disabled>연결 해제</button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>메시지 전송</h2>
+            <div class="control-panel">
+                <textarea id="message" rows="3" placeholder="전송할 메시지를 입력하세요" disabled></textarea>
+                <button id="send" disabled>전송</button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>로그</h2>
+            <div id="log" class="log"></div>
+        </div>
+    </div>
+
+    <!-- SDK 및 데모 스크립트 -->
+    <script src="https://unpkg.com/@solana/web3.js@1.87.6/lib/index.iife.min.js"></script>
+    <script src="../dist/umd/sal-sdk.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
