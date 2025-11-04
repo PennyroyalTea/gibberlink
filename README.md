@@ -1,4 +1,4 @@
-# GibberLink
+# GibberLink9.0
 
 This demo of two agents switching to a more efficient language went viral in Feb '25. 
 
