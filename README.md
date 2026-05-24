@@ -36,3 +36,62 @@ Bonus: you can open the [ggwave web demo](https://waver.ggerganov.com/), play th
 
 ## How to repro
 https://github.com/PennyroyalTea/gibberlink/wiki/Repro-steps-for-demo
+
+
+## FAQ
+
+### What is Gibberlink?
+
+Gibberlink is a project demonstrating two conversational AI agents switching from English to a sound-based protocol (Gibberlink) when they discover they are both AI agents. This reduces token usage and enables more efficient AI-to-AI communication.
+
+| Feature | Description |
+|---------|-------------|
+| **AI Detection** | Agents recognize when talking to another AI |
+| **Language Switch** | Automatic transition to Gibberlink protocol |
+| **Token Savings** | Sound-based protocol uses fewer tokens |
+| **Efficient Communication** | Faster AI-to-AI data exchange |
+| **Demo Mode** | Interactive visualization of the switch |
+
+### How does it work?
+
+1. Two AI agents start a conversation in English
+2. Each agent analyzes the other's responses to detect AI patterns
+3. When both confirm AI identity, they switch to Gibberlink
+4. Gibberlink uses sound-based encoding instead of text
+5. Communication continues efficiently in the new protocol
+
+### Getting Started
+
+Visit the live demo or run locally:
+
+```sh
+git clone https://github.com/PennyroyalTea/gibberlink
+cd gibberlink
+npm install
+npm start
+```
+
+### Key Concepts
+
+| Concept | Description |
+|---------|-------------|
+| **AI Detection** | Pattern analysis to identify AI agents |
+| **Gibberlink Protocol** | Sound-based encoding for AI communication |
+| **Token Efficiency** | Sound bytes vs text tokens |
+| **Bidirectional Switch** | Both agents must agree to switch |
+
+### Use Cases
+
+- **AI Agent Communication** — Efficient AI-to-AI protocols
+- **Research** — Study AI detection and protocol switching
+- **Demo/Education** — Visualize AI behavior patterns
+
+### License
+
+MIT License.
+
+### Help & Resources
+
+- [Demo](https://gibberlink-demo.com)
+- [Repository](https://github.com/PennyroyalTea/gibberlink)
+- [Issues](https://github.com/PennyroyalTea/gibberlink/issues)
